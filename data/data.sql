@@ -115,6 +115,6 @@ VALUES
       '⬆ Next Fucking Level ⬆',
       'https://www.reddit.com/r/nextfuckinglevel'
    )
-RETURNING (id, name, url);
+RETURNING *;
 
 -- brew services stop postgresql
