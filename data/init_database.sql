@@ -24,7 +24,7 @@ CREATE TABLE users (
 CREATE TABLE subreddits (
    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
    title VARCHAR ( 255 ) NOT NULL,
-   s_url VARCHAR ( 255 ) UNIQUE NOT NULL,
+   subreddit_url VARCHAR ( 255 ) UNIQUE NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
    last_modified TIMESTAMP DEFAULT NOW()
 );
@@ -32,8 +32,8 @@ CREATE TABLE subreddits (
 CREATE TABLE videos (
    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
    title VARCHAR ( 255 ) NOT NULL,
-   v_url VARCHAR ( 255 ) NOT NULL,
-   r_url VARCHAR ( 255 ) NOT NULL,
+   video_url VARCHAR ( 255 ) NOT NULL,
+   post_url VARCHAR ( 255 ) NOT NULL,
    subreddit_id UUID NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
    last_modified TIMESTAMP DEFAULT NOW(),
@@ -97,7 +97,7 @@ RETURNING id, first_name, last_name, email, password, role;
 INSERT INTO subreddits (
    id,
    title,
-   s_url
+   subreddit_url
 )
 VALUES
    (
@@ -120,13 +120,13 @@ VALUES
       '⬆ Next Fucking Level ⬆',
       'https://www.reddit.com/r/nextfuckinglevel'
    )
-RETURNING id, title, s_url;
+RETURNING id, title, subreddit_url;
 
 INSERT INTO videos (
    id,
    title,
-   v_url,
-   r_url,
+   video_url,
+   post_url,
    subreddit_id
 )
 VALUES
@@ -270,4 +270,4 @@ VALUES
       'https://www.reddit.com/r/nextfuckinglevel/comments/kkcx4n/greatest_pizza_delivery_guy_in_history/',
       '4b8c11a5-5d9c-4477-a569-cb5258b1bc2e'
    )
-RETURNING id, title, v_url, r_url, subreddit_id;
+RETURNING id, title, video_url, post_url, subreddit_id;
