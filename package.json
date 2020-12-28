@@ -1,0 +1,27 @@
+{
+  "name": "reddit-short-videos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "frontend": "npm start --prefix frontend",
+    "json-server": "json-server --watch data/db.json --port 5000",
+    "dev-f": "concurrently \"npm run frontend\" \"npm run json-server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzkaneoka/reddit-short-videos.git"
+  },
+  "author": "Kazuki Kaneoka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kzkaneoka/reddit-short-videos/issues"
+  },
+  "homepage": "https://github.com/kzkaneoka/reddit-short-videos#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "json-server": "^0.16.3"
+  },
+  "dependencies": {}
+}

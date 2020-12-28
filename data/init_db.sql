@@ -18,7 +18,7 @@ CREATE TABLE users (
    password VARCHAR ( 50 ) NOT NULL,
    role e_role DEFAULT 'user',
    created_at TIMESTAMP DEFAULT NOW(),
-   last_modified TIMESTAMP DEFAULT NOW()
+   modified_at TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE subreddits (
@@ -26,7 +26,7 @@ CREATE TABLE subreddits (
    title VARCHAR ( 255 ) NOT NULL,
    subreddit_url VARCHAR ( 255 ) UNIQUE NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
-   last_modified TIMESTAMP DEFAULT NOW()
+   modified_at TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE videos (
@@ -36,7 +36,7 @@ CREATE TABLE videos (
    post_url VARCHAR ( 255 ) NOT NULL,
    subreddit_id UUID NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
-   last_modified TIMESTAMP DEFAULT NOW(),
+   modified_at TIMESTAMP DEFAULT NOW(),
    FOREIGN KEY ( subreddit_id ) REFERENCES subreddits ( id )
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE r_users_subreddits (
    user_id UUID NOT NULL,
    subreddit_id UUID NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
-   last_modified TIMESTAMP DEFAULT NOW(),
+   modified_at TIMESTAMP DEFAULT NOW(),
    PRIMARY KEY ( user_id, subreddit_id ),
    FOREIGN KEY ( user_id ) REFERENCES users ( id ),
    FOREIGN KEY ( subreddit_id ) REFERENCES subreddits ( id )
@@ -55,7 +55,7 @@ CREATE TABLE r_users_videos (
    video_id UUID NOT NULL,
    rate e_rate NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
-   last_modified TIMESTAMP DEFAULT NOW(),
+   modified_at TIMESTAMP DEFAULT NOW(),
    PRIMARY KEY ( user_id, video_id ),
    FOREIGN KEY ( user_id ) REFERENCES users ( id ),
    FOREIGN KEY ( video_id ) REFERENCES videos ( id )

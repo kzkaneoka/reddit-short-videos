@@ -1,3 +1,13 @@
-.DS_Store
-system-design.drawio
+.DS_*
+system-design*.drawio
 data/videos
+.env
+
+# frontend
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
