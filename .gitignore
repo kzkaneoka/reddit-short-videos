@@ -1,6 +1,5 @@
 .DS_*
 system-design*.drawio
-data/videos
 .env
 
 # frontend
@@ -11,3 +10,6 @@ logs
 
 node_modules
 bower_components
+
+# database
+database/videos
