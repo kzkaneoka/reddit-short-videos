@@ -17,6 +17,8 @@ Please run the following commands **AT FRONTEND DIRECTORY**.
 
 [json-server](https://github.com/typicode/json-server) hosts fake REST API and you can requests CRUD operations such as GET, POST, PUT, and DELETE.
 
+Try the links after the above commands.
 - [http://localhost:5000/users](http://localhost:5000/users)
 - [http://localhost:5000/subreddits](http://localhost:5000/subreddits)
 - [http://localhost:5000/videos](http://localhost:5000/videos)
+
