@@ -7,7 +7,7 @@ function VideoPlayer(props) {
     <div>
       <AspectRatio ratio={16 / 9}>
         <iframe
-          title="naruto"
+          title={props.videoList[0].title}
           src={props.videoList[0].video_url}
           allowFullScreen
         />
