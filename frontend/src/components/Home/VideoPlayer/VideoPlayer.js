@@ -5,7 +5,7 @@ function VideoPlayer(props) {
   console.log(props);
   return (
     <div>
-      <AspectRatio ratio={16 / 9}>
+      <AspectRatio minW="650px" ratio={16 / 9}>
         <iframe
           title={props.videoList[0].title}
           src={props.videoList[0].video_url}
