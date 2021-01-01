@@ -7,8 +7,8 @@ function VideoPlayer(props) {
     <div>
       <AspectRatio minW="650px" ratio={16 / 9}>
         <iframe
-          title={props.videoList[0].title}
-          src={props.videoList[0].video_url}
+          title={props.videoList[props.count].title}
+          src={props.videoList[props.count].video_url}
           allowFullScreen
         />
       </AspectRatio>
