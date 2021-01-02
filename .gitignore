@@ -11,6 +11,9 @@ logs
 node_modules
 bower_components
 
+# backend
+config.env
+
 # database
 database/videos
 
