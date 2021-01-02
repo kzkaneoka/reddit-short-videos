@@ -9,12 +9,10 @@ function VideoPlayer(props) {
       <h1>
         #{props.count + 1}: {props.playlist[props.count].title}
       </h1>
-      <AspectRatio minW="650px" ratio={16 / 9}>
-        <iframe
-          title={props.playlist[props.count].title}
-          src={props.playlist[props.count].video_url}
-          allowFullScreen
-        />
+      <AspectRatio minW="800px" ratio={16 / 9}>
+        <video src={props.playlist[props.count].video_url} controls>
+          Your browser does not support the video tag.
+        </video>
       </AspectRatio>
     </div>
   );
