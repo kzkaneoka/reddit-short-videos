@@ -14,13 +14,13 @@ function Home() {
     fetchVideo("http://localhost:5000/videos");
   }, []);
 
-  const prevVid = () => {
+  const handlePrevVidClick = () => {
     if (vidCount > 0) {
       setVidCount(vidCount - 1);
     }
   };
 
-  const nextVid = () => {
+  const handleNextVidClick = () => {
     if (vidCount < videoList.length - 1) {
       setVidCount(vidCount + 1);
     }
@@ -35,7 +35,7 @@ function Home() {
           aria-label="Skip rating video"
           icon={<Icon as={FiArrowLeftCircle} boxSize={14} color="#535345" />}
           visibility={vidCount === 0 ? "hidden" : "visible"}
-          onClick={prevVid}
+          onClick={handlePrevVidClick}
           disabled={disabled}
         />
 
@@ -55,7 +55,7 @@ function Home() {
           aria-label="Skip rating video"
           icon={<Icon as={FiArrowRightCircle} boxSize={14} color="#535345" />}
           visibility={vidCount === videoList.length - 1 ? "hidden" : "visible"}
-          onClick={nextVid}
+          onClick={handleNextVidClick}
           disabled={disabled}
         />
       </Flex>

@@ -10,7 +10,8 @@ import { FiSmile, FiFrown, FiMeh } from "react-icons/fi";
 
 function Ratings() {
   const toast = useToast();
-  const userFeedBack = (e) => {
+  const handleClick = (e) => {
+    toast.closeAll();
     toast({
       title: `You ${e.currentTarget.id}d this video!`,
       status: "success",
@@ -28,7 +29,7 @@ function Ratings() {
           size={14}
           aria-label="Dislike video"
           icon={<Icon as={FiFrown} boxSize={14} color="#535345" />}
-          onClick={userFeedBack}
+          onClick={handleClick}
         />
         <IconButton
           id="skippe"
@@ -36,7 +37,7 @@ function Ratings() {
           size={14}
           aria-label="Skip rating video"
           icon={<Icon as={FiMeh} boxSize={14} color="#535345" />}
-          onClick={userFeedBack}
+          onClick={handleClick}
         />
         <IconButton
           id="like"
@@ -44,7 +45,7 @@ function Ratings() {
           size={14}
           aria-label="Like video"
           icon={<Icon as={FiSmile} boxSize={14} color="#535345" />}
-          onClick={userFeedBack}
+          onClick={handleClick}
         />
       </ButtonGroup>
     </Center>
