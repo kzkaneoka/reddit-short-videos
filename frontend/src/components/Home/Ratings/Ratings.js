@@ -26,25 +26,25 @@ function Ratings() {
         <IconButton
           id="dislike"
           bg="transparent"
-          size={14}
+          size={16}
           aria-label="Dislike video"
-          icon={<Icon as={FiFrown} boxSize={14} color="#535345" />}
+          icon={<Icon as={FiFrown} boxSize={16} color="#535345" />}
           onClick={handleClick}
         />
         <IconButton
           id="skippe"
           bg="transparent"
-          size={14}
+          size={16}
           aria-label="Skip rating video"
-          icon={<Icon as={FiMeh} boxSize={14} color="#535345" />}
+          icon={<Icon as={FiMeh} boxSize={16} color="#535345" />}
           onClick={handleClick}
         />
         <IconButton
           id="like"
           bg="transparent"
-          size={14}
+          size={16}
           aria-label="Like video"
-          icon={<Icon as={FiSmile} boxSize={14} color="#535345" />}
+          icon={<Icon as={FiSmile} boxSize={16} color="#535345" />}
           onClick={handleClick}
         />
       </ButtonGroup>
