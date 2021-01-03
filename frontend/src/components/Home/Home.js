@@ -44,7 +44,7 @@ function Home() {
   return (
     <div>
       <Filter videoList={videoList} setFilterList={setFilterList} />
-      <Flex justify="center" mx={3} minW="700px">
+      <Flex justify="center" align="center" mx={3} minW="700px">
         <IconButton
           bg="transparent"
           size={14}
@@ -52,6 +52,7 @@ function Home() {
           icon={<Icon as={FiArrowLeftCircle} boxSize={14} color="#535345" />}
           visibility={vidCount === 0 ? "hidden" : "visible"}
           onClick={handlePrevVidClick}
+          mx={3}
         />
 
         {playlist.length !== 0 ? (
@@ -71,6 +72,7 @@ function Home() {
           icon={<Icon as={FiArrowRightCircle} boxSize={14} color="#535345" />}
           visibility={vidCount === playlist.length - 1 ? "hidden" : "visible"}
           onClick={handleNextVidClick}
+          mx={3}
         />
       </Flex>
       <Ratings />
