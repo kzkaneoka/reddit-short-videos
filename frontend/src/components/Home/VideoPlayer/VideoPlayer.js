@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { AspectRatio, Spinner } from "@chakra-ui/react";
 
 function VideoPlayer(props) {
-  // props.cantChange(false);
   console.log(props.playlist);
   return (
     <div>

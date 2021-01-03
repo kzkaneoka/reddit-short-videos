@@ -21,7 +21,15 @@ function Filter(props) {
   return (
     <Center mb={3}>
       <Menu closeOnSelect={false}>
-        <MenuButton as={Button} colorScheme="blue">
+        <MenuButton
+          as={Button}
+          color="#FFF"
+          backgroundColor="#FFA51E"
+          _hover={{ bg: "#FF7C1E" }}
+          _active={{
+            bg: "#FF7C1E",
+          }}
+        >
           Filters
         </MenuButton>
         <MenuList minWidth="240px">
