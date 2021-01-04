@@ -3,9 +3,17 @@ const ErrorResponse = require('../utils/errorResponse');
 const db = require('../models');
 const Video = db.videos;
 
-// Retrieve all Videos from the database.
+// Retrieve all Videos from the database
+// Retrieve all Videos with specified subreddit from the database
 exports.findAll = asyncHandler(async (req, res) => {
-  const videos = await Video.findAll();
+  let videos;
+  if (req.params.subreddit_id) {
+    videos = await Video.findAll({
+      where: { subreddit_id: req.params.subreddit_id },
+    });
+  } else {
+    videos = await Video.findAll();
+  }
   res.status(200).json({ success: true, length: videos.length, data: videos });
 });
 
@@ -48,7 +56,7 @@ exports.create = asyncHandler(async (req, res, next) => {
 
   // Save Video in the database
   const data = await Video.create(video);
-  res.status(200).json({ success: true, data: video });
+  res.status(200).json({ success: true, data });
 });
 
 // Update a Video by the id in the request

@@ -1,8 +1,9 @@
 module.exports = (app) => {
   const videos = require('../controllers/video');
-  var router = require('express').Router();
+  var router = require('express').Router({ mergeParams: true });
 
   // Retrieve all Videos
+  // Retrieve all Videos with specified subreddit from the database
   router.get('/', videos.findAll);
 
   // Retrieve a single Video with id
@@ -17,5 +18,5 @@ module.exports = (app) => {
   // Delete a Video with the specified id in the request
   router.delete('/:id', videos.delete);
 
-  app.use('/api/v1/videos', router);
+  app.use('/api/videos', router);
 };

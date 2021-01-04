@@ -11,6 +11,7 @@ const checkDb = async () => {
 };
 
 db = {};
+db.subreddits = require('./Subreddit')(sequelize, Sequelize);
 db.videos = require('./Video')(sequelize, Sequelize);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
