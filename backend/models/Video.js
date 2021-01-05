@@ -23,7 +23,6 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
         isUrl: true,
       },
-      // TODO: Set forign key after creating Subreddit model
       subreddit_id: {
         type: DataTypes.UUID,
       },
