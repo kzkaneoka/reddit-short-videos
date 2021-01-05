@@ -1,27 +1,27 @@
-module.exports = (app) => {
-  const subreddits = require('../controllers/subreddit');
-  var router = require('express').Router();
+const subreddits = require('../controllers/subreddit');
 
-  // Include other resource routers
-  const videoRouter = require('./video');
+// Init router
+const router = require('express').Router();
 
-  // Forward to other resource routers
-  router.use('/:subreddit_id/videos', videoRouter);
+// Include other resource routers
+const videoRouter = require('./video');
 
-  // Retrieve all Subreddits
-  router.get('/', subreddits.findAll);
+// Nested routers with video router
+router.use('/:subreddit_id/videos', videoRouter);
 
-  // Retrieve a single Subreddit with id
-  router.get('/:id', subreddits.findOne);
+// Retrieve all Subreddits
+router.get('/', subreddits.findAll);
 
-  // Create and Save a new Subreddit
-  router.post('/', subreddits.create);
+// Retrieve a single Subreddit with id
+router.get('/:id', subreddits.findOne);
 
-  // Update a Subreddit by the id in the request
-  router.put('/:id', subreddits.update);
+// Create and Save a new Subreddit
+router.post('/', subreddits.create);
 
-  // Delete a Subreddit with the specified id in the request
-  router.delete('/:id', subreddits.delete);
+// Update a Subreddit by the id in the request
+router.put('/:id', subreddits.update);
 
-  app.use('/api/subreddits', router);
-};
+// Delete a Subreddit with the specified id in the request
+router.delete('/:id', subreddits.delete);
+
+module.exports = router;

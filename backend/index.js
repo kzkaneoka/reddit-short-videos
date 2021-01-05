@@ -28,9 +28,13 @@ if (process.env.NODE_ENV === 'development') {
 // Enable CORS
 app.use(cors());
 
+// Load routers
+const subreddits = require('./routes/subreddit');
+const videos = require('./routes/video');
+
 // Set routers
-require('./routes/subreddit')(app);
-require('./routes/video')(app);
+app.use('/api/subreddits', subreddits);
+app.use('/api/videos', videos);
 
 // Return error as json format
 app.use(errorHandler);

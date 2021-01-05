@@ -1,22 +1,22 @@
-module.exports = (app) => {
-  const videos = require('../controllers/video');
-  var router = require('express').Router({ mergeParams: true });
+const videos = require('../controllers/video');
 
-  // Retrieve all Videos
-  // Retrieve all Videos with specified subreddit from the database
-  router.get('/', videos.findAll);
+// Init router and set to use the parent params
+const router = require('express').Router({ mergeParams: true });
 
-  // Retrieve a single Video with id
-  router.get('/:id', videos.findOne);
+// Retrieve all Videos
+// Retrieve all Videos with specified subreddit from the database
+router.get('/', videos.findAll);
 
-  // Create and Save a new Video
-  router.post('/', videos.create);
+// Retrieve a single Video with id
+router.get('/:id', videos.findOne);
 
-  // Update a Video by the id in the request
-  router.put('/:id', videos.update);
+// Create and Save a new Video
+router.post('/', videos.create);
 
-  // Delete a Video with the specified id in the request
-  router.delete('/:id', videos.delete);
+// Update a Video by the id in the request
+router.put('/:id', videos.update);
 
-  app.use('/api/videos', router);
-};
+// Delete a Video with the specified id in the request
+router.delete('/:id', videos.delete);
+
+module.exports = router;
