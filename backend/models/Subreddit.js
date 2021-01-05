@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize, Sequelize) => {
-  const Video = sequelize.define(
-    'videos',
+  const Subreddit = sequelize.define(
+    'subreddits',
     {
       id: {
         type: DataTypes.UUID,
@@ -13,18 +13,10 @@ module.exports = (sequelize, Sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      video_url: {
+      subreddit_url: {
         type: DataTypes.STRING,
         allowNull: false,
         isUrl: true,
-      },
-      post_url: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        isUrl: true,
-      },
-      subreddit_id: {
-        type: DataTypes.UUID,
       },
       created_at: {
         type: DataTypes.DATE,
@@ -39,5 +31,5 @@ module.exports = (sequelize, Sequelize) => {
     },
     { timestamps: false }
   );
-  return Video;
+  return Subreddit;
 };

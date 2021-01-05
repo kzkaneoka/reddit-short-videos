@@ -37,7 +37,7 @@ CREATE TABLE videos (
    subreddit_id UUID NOT NULL,
    created_at TIMESTAMP DEFAULT NOW(),
    modified_at TIMESTAMP DEFAULT NOW(),
-   FOREIGN KEY ( subreddit_id ) REFERENCES subreddits ( id )
+   FOREIGN KEY ( subreddit_id ) REFERENCES subreddits ( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE r_users_subreddits (

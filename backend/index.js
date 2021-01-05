@@ -1,4 +1,5 @@
 const colors = require('colors');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const errorHandler = require('./middleware/error');
 const express = require('express');
@@ -24,8 +25,16 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Enable CORS
+app.use(cors());
+
+// Load routers
+const subreddits = require('./routes/subreddit');
+const videos = require('./routes/video');
+
 // Set routers
-require('./routes/video')(app);
+app.use('/api/subreddits', subreddits);
+app.use('/api/videos', videos);
 
 // Return error as json format
 app.use(errorHandler);
