@@ -12,5 +12,10 @@ node_modules
 bower_components
 .eslintcache
 
+# backend
+config.env
+
 # database
 database/videos
+
+.eslintcache
