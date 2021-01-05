@@ -5,7 +5,7 @@ function VideoPlayer(props) {
   console.log(props.playlist);
   return (
     <div>
-      <h1>
+      <h1 style={{ fontSize: "1.25em", fontWeight: "bold" }}>
         #{props.count + 1}: {props.playlist[props.count].title}
       </h1>
       <AspectRatio minW="800px" ratio={16 / 9}>

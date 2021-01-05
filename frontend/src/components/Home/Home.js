@@ -44,6 +44,7 @@ function Home() {
   return (
     <div>
       <Filter videoList={videoList} setFilterList={setFilterList} />
+      {isError && <div>Something went wrong...</div>}
       <Flex justify="center" align="center" mx={3} minW="700px">
         <IconButton
           bg="transparent"
