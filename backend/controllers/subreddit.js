@@ -1,7 +1,7 @@
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
 const db = require('../models');
-const Subreddit = db.subreddits;
+const Subreddit = db.Subreddit;
 
 // Retrieve all Subreddits from the database.
 exports.findAll = asyncHandler(async (req, res) => {

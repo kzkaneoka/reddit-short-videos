@@ -1,35 +1,34 @@
-const { DataTypes } = require('sequelize');
+const Sequelize = require('sequelize');
 
-module.exports = (sequelize, Sequelize) => {
-  const Subreddit = sequelize.define(
+module.exports = (sequelize) => {
+  return sequelize.define(
     'subreddits',
     {
       id: {
-        type: DataTypes.UUID,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
       title: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       subreddit_url: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         isUrl: true,
       },
       created_at: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
       modified_at: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
     },
     { timestamps: false }
   );
-  return Subreddit;
 };

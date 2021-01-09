@@ -1,43 +1,42 @@
-const { DataTypes } = require('sequelize');
+const Sequelize = require('sequelize');
 
-module.exports = (sequelize, Sequelize) => {
-  const Video = sequelize.define(
+module.exports = (sequelize) => {
+  return sequelize.define(
     'videos',
     {
       id: {
-        type: DataTypes.UUID,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
       title: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       video_url: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         isUrl: true,
       },
       post_url: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
         isUrl: true,
       },
       subreddit_id: {
-        type: DataTypes.UUID,
+        type: Sequelize.UUID,
       },
       created_at: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
       modified_at: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
     },
     { timestamps: false }
   );
-  return Video;
 };

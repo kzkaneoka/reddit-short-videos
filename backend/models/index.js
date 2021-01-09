@@ -1,8 +1,11 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize(process.env.POSTGRES_URI, { logging: false });
-const { DataTypes } = require('Sequelize');
+const SubredditModel = require('./Subreddit');
+const VideoModel = require('./Video');
 
-// check if db connection is success or not
+// Connect to the database
+const sequelize = new Sequelize(process.env.POSTGRES_URI, { logging: false });
+
+// check if database connection is success or not
 const checkDb = async () => {
   try {
     await sequelize.authenticate();
@@ -12,27 +15,24 @@ const checkDb = async () => {
   }
 };
 
-// init db
-db = {};
-
-// Add models
-db.subreddits = require('./Subreddit')(sequelize, Sequelize);
-db.videos = require('./Video')(sequelize, Sequelize);
+// Associate models with the connected database
+const Subreddit = SubredditModel(sequelize);
+const Video = VideoModel(sequelize);
 
 // One-To-Many relationship between Subreddit and Video
-db.subreddits.hasMany(db.videos, {
+Subreddit.hasMany(Video, {
   foreignKey: 'subreddit_id',
-  type: DataTypes.UUID,
-  onDelete: 'CASCADE',
-});
-db.videos.belongsTo(db.subreddits, {
-  foreignKey: 'subreddit_id',
-  type: DataTypes.UUID,
+  type: Sequelize.UUID,
   onDelete: 'CASCADE',
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-db.checkDb = checkDb;
+Video.belongsTo(Subreddit, {
+  foreignKey: 'subreddit_id',
+  type: Sequelize.UUID,
+  onDelete: 'CASCADE',
+});
+
+// init db
+const db = { sequelize, checkDb, Subreddit, Video };
 
 module.exports = db;

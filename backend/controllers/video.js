@@ -1,7 +1,7 @@
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
 const db = require('../models');
-const Video = db.videos;
+const Video = db.Video;
 
 // Retrieve all Videos from the database
 // Retrieve all Videos with specified subreddit from the database
